@@ -95,33 +95,19 @@ int main(void)
   {
 	  for (int i = 0; i < 12; i++) {
 	  		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|
-	  		  			GPIO_PIN_4|GPIO_PIN_5,SET);
+	  		  			GPIO_PIN_4|GPIO_PIN_5,RESET);
 	  		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|
-	  		  	 		GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12, RESET);
+	  		  	 		GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12, SET);
 
 	  		  switch (i){
 	  		  case 0:
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, RESET);
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, RESET);
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, RESET);
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, RESET);
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, RESET);
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, SET);
 
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, SET);
-
-
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, SET);
-
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, SET);
-
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, SET);
-	  			  break;
+	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, SET);
+	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
+	  			break;
 	  		  case 1:
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, SET);
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, SET);
-
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
 	  			  break;
 	  		  case 2:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
