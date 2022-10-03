@@ -101,53 +101,52 @@ int main(void)
 
 	  		  switch (i){
 	  		  case 0:
-
 	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, SET);
-	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
+	  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
 	  			break;
 	  		  case 1:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
 	  			  break;
 	  		  case 2:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
 	  			  break;
 	  		  case 3:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, RESET);
 	  			  break;
 	  		  case 4:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, RESET);
 	  			  break;
 	  		  case 5:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, RESET);
 	  			  break;
 	  		  case 6:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, RESET);
 	  			  break;
 	  		  case 7:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, RESET);
 	  			  break;
 	  		  case 8:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, RESET);
 	  			  break;
 	  		  case 9:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, RESET);
 	  			  break;
 	  		  case 10:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
 	  			  break;
 	  		  case 11:
 	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
+	  			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
 	  			  break;
 	  		  }
 	  		  HAL_Delay(1000);
@@ -207,32 +206,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_4|GPIO_PIN_5
-                          |GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9
-                          |GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4
+                          |GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8
+                          |GPIO_PIN_9|GPIO_PIN_10, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PA1 PA2 PA4 PA5
-                           PA6 PA7 PA8 PA9
-                           PA10 PA11 PA12 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_4|GPIO_PIN_5
-                          |GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9
-                          |GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12;
+  /*Configure GPIO pins : PA1 PA2 PA3 PA4
+                           PA5 PA6 PA7 PA8
+                           PA9 PA10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4
+                          |GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8
+                          |GPIO_PIN_9|GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PA3 */
-  GPIO_InitStruct.Pin = GPIO_PIN_3;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configures the port and pin on which the EVENTOUT Cortex signal will be connected */
-  HAL_GPIOEx_ConfigEventout(AFIO_EVENTOUT_PORT_A, AFIO_EVENTOUT_PIN_3);
-
-  /*Enables the Event Output */
-  HAL_GPIOEx_EnableEventout();
 
 }
 
